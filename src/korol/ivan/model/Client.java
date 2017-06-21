@@ -1,5 +1,7 @@
 package korol.ivan.model;
 
+import java.util.Date;
+
 /**
  * @author by Ivan Korol on 6/20/2017.
  */
@@ -13,31 +15,31 @@ public class Client {
     private int price;
     private int avance;
     private int rest;
-    private String dedline;
+    private Date dedline;
 
-    public Client(String fio, String contact, String product, String textile, int price, int avance, int rest, String dedline) {
-        this.fio = fio;
-        this.contact = contact;
-        this.product = product;
-        this.textile = textile;
-        this.price = price;
-        this.avance = avance;
-        this.rest = rest;
-        this.dedline = dedline;
-    }
-
-    public Client(int id, String fio, String contact, String product, String textile, int price, int avance, int rest, String dedline) {
-
-        this.id = id;
-        this.fio = fio;
-        this.contact = contact;
-        this.product = product;
-        this.textile = textile;
-        this.price = price;
-        this.avance = avance;
-        this.rest = rest;
-        this.dedline = dedline;
-    }
+//    public Client(String fio, String contact, String product, String textile, int price, int avance, int rest, String dedline) {
+//        this.fio = fio;
+//        this.contact = contact;
+//        this.product = product;
+//        this.textile = textile;
+//        this.price = price;
+//        this.avance = avance;
+//        this.rest = rest;
+//        this.dedline = dedline;
+//    }
+//
+//    public Client(int id, String fio, String contact, String product, String textile, int price, int avance, int rest, String dedline) {
+//
+//        this.id = id;
+//        this.fio = fio;
+//        this.contact = contact;
+//        this.product = product;
+//        this.textile = textile;
+//        this.price = price;
+//        this.avance = avance;
+//        this.rest = rest;
+//        this.dedline = dedline;
+//    }
 
     public Client() {
 
@@ -106,11 +108,11 @@ public class Client {
         this.rest = rest;
     }
 
-    public String getDedline() {
+    public Date getDedline() {
         return dedline;
     }
 
-    public void setDedline(String dedline) {
+    public void setDedline(Date dedline) {
         this.dedline = dedline;
     }
 

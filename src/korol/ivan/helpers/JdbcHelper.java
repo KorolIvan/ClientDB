@@ -20,15 +20,21 @@ public class JdbcHelper {
         Connection dbConnection = null;
 
         try {
+            Class.forName("org.sqlite.JDBC");
             dbConnection = DriverManager.getConnection(DB_CONNECTION);
             dbConnection.setAutoCommit(true);
             return dbConnection;
         } catch (SQLException e) {
             e.printStackTrace();
+        } catch (ClassNotFoundException e) {
+            e.printStackTrace();
         }
 
         return dbConnection;
     }
+
+
+
 
     public static void closeContection() {
         try {
