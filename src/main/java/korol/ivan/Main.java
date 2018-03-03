@@ -13,7 +13,11 @@ public class Main extends Application {
 
     @Override
     public void start(Stage primaryStage) throws Exception{
-
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("/view/logIn.fxml"));
+        primaryStage.setTitle("Client Data Base");
+        Parent root = (Parent) loader.load();
+        primaryStage.setScene(new Scene(root));
+        primaryStage.show();
     }
 
 
