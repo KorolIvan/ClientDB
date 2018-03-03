@@ -4,16 +4,16 @@ import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
+
+import java.util.regex.Pattern;
 
 public class Main extends Application {
 
     @Override
     public void start(Stage primaryStage) throws Exception{
-        Parent root = FXMLLoader.load(getClass().getResource("view/mainFrame.fxml"));
-        primaryStage.setTitle("ClientDB");
-        primaryStage.setScene(new Scene(root, 450, 500));
-        primaryStage.show();
+
     }
 
 
