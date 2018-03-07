@@ -1,17 +1,18 @@
 package korol.ivan.controllers;
 
 import javafx.event.ActionEvent;
+import javafx.event.Event;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
-import javafx.fxml.Initializable;
+import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
+import javafx.scene.layout.AnchorPane;
+import javafx.scene.layout.StackPane;
+import javafx.stage.Stage;
 
 import java.io.IOException;
-import java.net.URL;
-import java.util.ResourceBundle;
 
 
 /**
@@ -33,33 +34,36 @@ public class LoginCtrl {
     public LoginCtrl() {
     }
 
-//    @FXML
-//    public void initialize() {
-//
-//    }
-
     public void showLoginScreen() {
         try {
             FXMLLoader loader = new FXMLLoader(getClass().getResource("/view/logIn.fxml"));
-            //scene = new Scene((Parent) loader.load());
             scene.setRoot((Parent) loader.load());
-
-
         } catch (IOException ex) {
             System.out.println("show login screen something going wrong");
             ex.printStackTrace();
         }
     }
 
-
-    public void onClick(ActionEvent event)  {
-        Alert alert = new Alert(Alert.AlertType.INFORMATION);
-        alert.show();
+    @FXML
+    public void onClick()  {
+        login.setOnAction(e->
+            showMainScreen(e)
+        );
+        //showMainScreen();
     }
 
+    public void showMainScreen(Event event) {
+        try {
+            Scene mainScreen = new Scene(new StackPane());
+            FXMLLoader loader = new FXMLLoader(MainScreenCtrl.class.getResource("/view/mainScreen.fxml"));
+            mainScreen.setRoot((Parent) loader.load());
+            Stage mainScreenStage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+            mainScreenStage.setScene(mainScreen);
+            mainScreenStage.show();
 
-//    @Override
-//    public void initialize(URL location, ResourceBundle resources) {
-//
-//    }
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
 }
