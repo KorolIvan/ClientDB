@@ -4,19 +4,24 @@ import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.layout.AnchorPane;
+import javafx.scene.layout.StackPane;
 import javafx.stage.Stage;
+import korol.ivan.controllers.LoginCtrl;
 
-import java.util.regex.Pattern;
 
 public class Main extends Application {
 
     @Override
     public void start(Stage primaryStage) throws Exception{
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("/view/logIn.fxml"));
-        primaryStage.setTitle("Client Data Base");
-        Parent root = (Parent) loader.load();
-        primaryStage.setScene(new Scene(root));
+        Scene scene = new Scene(new StackPane());
+
+        LoginCtrl loginCtrl = new LoginCtrl(scene);
+        loginCtrl.showLoginScreen();
+
+        //scene.setRoot(root);
+
+
+        primaryStage.setScene(scene);
         primaryStage.show();
     }
 
