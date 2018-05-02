@@ -1,6 +1,5 @@
 package korol.ivan.controllers;
 
-import javafx.event.ActionEvent;
 import javafx.event.Event;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -8,9 +7,9 @@ import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
-import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.StackPane;
 import javafx.stage.Stage;
+import korol.ivan.common.ScreenLoader;
 
 import java.io.IOException;
 
@@ -49,21 +48,11 @@ public class LoginCtrl {
         login.setOnAction(e->
             showMainScreen(e)
         );
-        //showMainScreen();
+
     }
 
     public void showMainScreen(Event event) {
-        try {
-            Scene mainScreen = new Scene(new StackPane());
-            FXMLLoader loader = new FXMLLoader(MainScreenCtrl.class.getResource("/view/mainScreen.fxml"));
-            mainScreen.setRoot((Parent) loader.load());
-            Stage mainScreenStage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-            mainScreenStage.setScene(mainScreen);
-            mainScreenStage.show();
-
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
+        ScreenLoader.showScreen(event, "mainScreen.fxml");
     }
 
 }
