@@ -2,9 +2,6 @@
 
 <?import javafx.scene.text.*?>
 <?import javafx.geometry.*?>
-<?import java.lang.*?>
-<?import java.util.*?>
-<?import javafx.scene.*?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
@@ -98,12 +95,12 @@
             </HBox>
             <HBox alignment="CENTER_RIGHT" prefHeight="50.0" prefWidth="288.0">
                <children>
-                  <Button mnemonicParsing="false" text="confirm">
+                  <Button mnemonicParsing="false" text="confirm" fx:id="regConfirm" onAction="#regConfirm">
                      <HBox.margin>
                         <Insets right="15.0" />
                      </HBox.margin>
                   </Button>
-                  <Button mnemonicParsing="false" text="cancel">
+                  <Button mnemonicParsing="false" text="cancel" fx:id="regCancel" onAction="#regCancel">
                      <HBox.margin>
                         <Insets right="25.0" />
                      </HBox.margin>

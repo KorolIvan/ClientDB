@@ -3,15 +3,12 @@ package korol.ivan.controllers;
 import javafx.event.Event;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
-import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
-import javafx.scene.layout.StackPane;
-import javafx.stage.Stage;
 import korol.ivan.common.ScreenLoader;
 
 import java.io.IOException;
@@ -58,7 +55,7 @@ public class LoginCtrl {
     }
 
     @FXML
-    public void onClick()  {
+    public void mainScreenLoading()  {
         if(userValidation()){
             login.setOnAction(e->
                     showMainScreen(e)
@@ -75,4 +72,7 @@ public class LoginCtrl {
         ScreenLoader.showScreen(event, "mainScreen.fxml");
     }
 
+    public void registrationScreenLoading(Event actionEvent) {
+        ScreenLoader.showScreen(actionEvent, "registrationScreen.fxml");
+    }
 }

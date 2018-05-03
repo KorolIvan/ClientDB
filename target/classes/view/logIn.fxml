@@ -47,12 +47,12 @@
           <Label prefWidth="69.0" text="Password" GridPane.halignment="CENTER" GridPane.rowIndex="2" GridPane.valignment="CENTER" />
           <TextField fx:id="userName" GridPane.columnIndex="1" GridPane.rowIndex="1" />
           <PasswordField fx:id="password" GridPane.columnIndex="1" GridPane.rowIndex="2" />
-          <Button fx:id="login" alignment="CENTER" onAction="#onClick" text="log In" textAlignment="CENTER" textOverrun="CENTER_ELLIPSIS" GridPane.halignment="CENTER" GridPane.rowIndex="3" GridPane.valignment="CENTER">
+          <Button fx:id="login" alignment="CENTER" onAction="#mainScreenLoading" text="log In" textAlignment="CENTER" textOverrun="CENTER_ELLIPSIS" GridPane.halignment="CENTER" GridPane.rowIndex="3" GridPane.valignment="CENTER">
             <GridPane.margin>
               <Insets />
             </GridPane.margin>
           </Button>
-          <Button fx:id="registration" mnemonicParsing="false" text="Registration" textAlignment="CENTER" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="3" />
+          <Button fx:id="registration" mnemonicParsing="false" text="Registration" onAction="#registrationScreenLoading" textAlignment="CENTER" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="3" />
         </children>
      </GridPane>
      <AnchorPane prefHeight="200.0" prefWidth="200.0" />
