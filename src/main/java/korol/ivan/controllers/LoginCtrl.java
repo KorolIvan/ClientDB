@@ -6,7 +6,10 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
+import javafx.scene.control.PasswordField;
+import javafx.scene.control.TextField;
 import javafx.scene.layout.StackPane;
 import javafx.stage.Stage;
 import korol.ivan.common.ScreenLoader;
@@ -18,6 +21,8 @@ import java.io.IOException;
  * @author by Ivan Korol on 11/8/2017.
  */
 public class LoginCtrl {
+    public TextField userName;
+    public PasswordField password;
     private Scene scene;
 
     @FXML
@@ -43,11 +48,26 @@ public class LoginCtrl {
         }
     }
 
+    public boolean userValidation() {
+        boolean valid = false;
+        if(!userName.getText().isEmpty() && !password.getText().isEmpty()){
+            valid = true;
+        }
+
+        return valid;
+    }
+
     @FXML
     public void onClick()  {
-        login.setOnAction(e->
-            showMainScreen(e)
-        );
+        if(userValidation()){
+            login.setOnAction(e->
+                    showMainScreen(e)
+            );
+        }else {
+            Alert alert = new Alert(Alert.AlertType.WARNING);
+            alert.showAndWait();
+        }
+
 
     }
 
