@@ -2,6 +2,7 @@ package korol.ivan.helper;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
+import java.sql.PreparedStatement;
 import java.sql.SQLException;
 
 /**
@@ -10,8 +11,12 @@ import java.sql.SQLException;
 public class JdbcHelper {
     //todo connection
 
-    private static final String DB_CONNECTION = "jdbc:sqlite:sql/client.db";
-    private static Connection connection;
+    private static String pathToDB = "ClientDB\\sql\\";
+    //private static final String DB_CONNECTION = "jdbc:sqlite:" + pathToDB + "sql\\client.db";
+    private static final String DB_CONNECTION = "jdbc:sqlite:C:\\documents\\client db\\ClientDB\\sql\\client.db";
+
+    static Connection connection;
+    static PreparedStatement preparedStatement;
 
     public static Connection getConnection() {
         try{
@@ -24,7 +29,7 @@ public class JdbcHelper {
         return connection;
     }
 
-    public void closeConnection() {
+    public static void closeConnection() {
         try{
             if (connection != null){
                 connection.close();
@@ -32,6 +37,14 @@ public class JdbcHelper {
         } catch (SQLException e) {
             e.printStackTrace();
         }
+    }
+
+    public static PreparedStatement getPreparedStatement(String querySQL) throws SQLException{
+        connection = getConnection();
+
+        preparedStatement = connection.prepareStatement(querySQL);
+
+        return preparedStatement;
     }
 
 
